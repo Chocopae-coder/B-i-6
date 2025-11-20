@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>May tinh bo tui</title>
+</head>
+<style>
+table{
+    border: 1px solid;
+}
+td{
+    width: 50px ;
+    height: 50px;
+    border: 1px solid;
+}
+button{
+    width: 100%;
+    height: 100%;
+}
+</style>
+<body>
+    <table id="calculator">
+        <tr>
+        <td id="screen" colspan="4"></td>
+    </tr>
+    <tr>
+        <td><button>(</button></td>
+        <td><button>)</button></td>
+        <td><button>%</button></td>
+        <td><button>AC</button></td>
+    </tr>
+    <tr>
+        <td><button onclick="addnumber(7)">7</button></td>
+        <td><button onclick="addnumber(8)">8</button></td>
+        <td><button onclick="addnumber(9)">9</button></td>
+        <td><button>/</button></td>
+    </tr>
+    <tr>
+        <td><button onclick="addnumber(4)">4</button></td>
+        <td><button onclick="addnumber(5)">5</button></td>
+        <td><button onclick="addnumber(6)">6</button></td>
+        <td><button >x</button></td>
+    </tr>
+    <tr>
+        <td><button onclick="addnumber(1)">1</button></td>
+        <td><button onclick="addnumber(2)">2</button></td>
+        <td><button onclick="addnumber(3)">3</button></td>
+        <td><button>-</button></td>
+    </tr>
+    <tr>
+        <td><button onclick="addnumber(0)">0</button></td>
+        <td><button>.</button></td>
+        <td><button>=</button></td>
+        <td><button>+</button></td>
+    </tr>
+    </table>
+    <script>
+        let screen=document.getElementById('screen');
+        function addnumber(){
+            screen.innertext +=Number
+        }
+        function clearscreen(){
+            screen.innertext = 0;
+        }
+    </script>
+</body>
+</html>
