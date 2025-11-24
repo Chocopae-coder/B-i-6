@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <p>Kiem tra boi so</p>
+  <button onclick="kiemtra()">nhap so can kiem tra</button>
+    <script>
+        function kiemtra(){
+          let a = prompt("nhap a:");
+          let b = prompt("nhap b:")
+          if (b==0){
+            alert("khong chia het cho 0");
+            return;
+          }
+          if(a%b===0){
+            alert(a +" chi het cho "+b)
+          } else {
+            alert(a+" khong chia het cho "+b)
+
+          }
+        }
+    </script>
+</body>
+</html>
