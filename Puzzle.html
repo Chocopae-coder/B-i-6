@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Puzzle IF Game</title>
+<style>
+    body {
+        text-align: center;
+        font-family: Arial;
+    }
+    img {
+        width: 100px;
+        height: 100px;
+        cursor: pointer;
+        margin: 5px;
+        border: 2px solid #333;
+    }
+</style>
+</head>
+<body>
+
+<h2>🧩 Puzzle Game - IF ONLY</h2>
+<p>Click để ghép ảnh giống nhau</p>
+
+<img id="img1" src="1.jpg" onclick="change(1)">
+<img id="img2" src="2.jpg" onclick="change(2)">
+<img id="img3" src="3.jpg" onclick="change(3)">
+
+<script>
+function change(n){
+    let img;
+
+    if(n === 1) img = document.getElementById("img1");
+    if(n === 2) img = document.getElementById("img2");
+    if(n === 3) img = document.getElementById("img3");
+
+    if(img.src.includes("1.jpg")){
+        img.src = "2.jpg";
+    } else if(img.src.includes("2.jpg")){
+        img.src = "3.jpg";
+    } else {
+        img.src = "1.jpg";
+    }
+
+    checkWin();
+}
+
+function checkWin(){
+    let i1 = document.getElementById("img1").src;
+    let i2 = document.getElementById("img2").src;
+    let i3 = document.getElementById("img3").src;
+
+    if(i1.includes("1.jpg") && i2.includes("1.jpg") && i3.includes("1.jpg")){
+        alert("🎉 YOU WIN! Puzzle hoàn thành!");
+    }
+}
+</script>
+
+</body>
+</html>
