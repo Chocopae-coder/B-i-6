@@ -29,7 +29,9 @@
 <script>
 function change(n){
     let img;
-
+    console.log(img1);
+    console.log(img2);
+    console.log(img3);
     if(n === 1) img = document.getElementById("img1");
     if(n === 2) img = document.getElementById("img2");
     if(n === 3) img = document.getElementById("img3");
@@ -50,7 +52,7 @@ function checkWin(){
     let i2 = document.getElementById("img2").src;
     let i3 = document.getElementById("img3").src;
 
-    if(i1.includes("1.jpg") && i2.includes("1.jpg") && i3.includes("1.jpg")){
+    if(i1.includes("2.jpg") && i2.includes("2.jpg") && i3.includes("2.jpg")){
         alert("🎉 YOU WIN! Puzzle hoàn thành!");
     }
 }
