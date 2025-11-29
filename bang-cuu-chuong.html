@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    td{
+        border: 1px solid;
+        width: 100px;
+        height: 30px;
+
+    }
+</style>
+<body>
+    <table id="bcc"></table>
+    <script>
+        function bangCuuChuong(){
+            // for(let i = 1; i<=9; i++){
+            //     document.write("2 x "+i+"="+2*i + "<br>");
+            // }
+
+            // for(let i = 1; i<=9; i++){
+            //     document.write("3 x "+i+"="+3*i + "<br>");
+            // }
+
+            // for(let i = 1; i<=9; i++){
+            //     document.write("4 x "+i+"="+4*i + "<br>");
+            // }
+            let bcc = document.getElementById("bcc");
+            let str = "";
+
+            // let a = 1;
+            // while(a <= 9){
+            //     str += "<tr>";
+            //     for(let i = 2; i<=9; i++){
+            //         // str += "<td>"+i +" x "+a+"="+a*i+"</td>";
+            //         str += `<td>${i} x ${a} = ${a*i}</td>`;
+            //     }
+            //     str +="</tr>"
+            //     a++;
+            // }
+
+            for(let i = 1;i<=9;i++){
+                str += "<tr>";
+                for(let j = 2; j<=9; j++){
+                    // str += "<td>"+i +" x "+a+"="+a*i+"</td>";
+                    str += `<td>${j} x ${i} = ${j*i}</td>`;
+                }
+                str +="</tr>"
+            }
+
+            bcc.innerHTML = str;
+        }
+        bangCuuChuong();
+    </script>
+</body>
+</html>
