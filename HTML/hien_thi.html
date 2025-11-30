@@ -8,11 +8,13 @@
 <body>
     <script>
         function hienthi(){
-            let i=1
-            while (i<=5){
-                document.write("this number is "+i+ "<br>")
-                i++;
+            let num = prompt("nhap so n")
+            let total= 0
+            while (num!=-1){
+                total=parseInt(total)+parseInt(num)
+                num = prompt("nhap so n")
             }
+            alert(total)
         }
         hienthi()
     </script>
