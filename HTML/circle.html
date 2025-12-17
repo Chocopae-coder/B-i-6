@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let circle=function(radius){
+            this.radius=radius;
+            this.getradius=function(){
+                return this.radius
+            }
+            this.getarea =function(){
+                return Math.PI*radius*radius
+            }
+        }
+        let test_1 =new circle(2);
+        test_1.getradius(2);
+        chu_vi=test_1.getarea().toFixed(3);
+        document.write(chu_vi)
+
+    </script>
+</body>
+</html>
