@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let mydate = function(day,month,year){
+            this.day=day;
+            this.month=month;
+            this.year=year;
+            this.getday=function(){
+                return this.day
+            }
+            this.getmonth=function(){
+                return this.month
+            }
+            this.getyear=function(){
+                return this.year
+            }
+            this.setday=function(day){
+                this.day=day
+            }
+            this.setmonth=function(month){
+                this.month=month
+            }
+            this.setyear=function(year){
+                this.year=year
+            }
+        }
+        let date =new mydate(18,12,2025)
+        date.setday(21);
+        date.setmonth(11);
+        date.setyear(1994);
+        let a = date.getday()
+        let b= date.getmonth()
+        let c = date.getyear()
+        document.write(a+"/"+b+"/"+c)
+    </script>
+</body>
+</html>
