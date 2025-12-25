@@ -26,7 +26,7 @@ const ctx = canvas.getContext('2d');
 // Xe của người chơi
 const car = {
     x: canvas.width/2 - 20,
-    y: canvas.height - 60,
+    y: canvas.height - 100,
     width: 50,
     height: 80,
     speed: 6
@@ -37,7 +37,7 @@ let obstacles = [];
 let score = 0;
 let gameOver = false;
 let obstacleSpeed = 2;
-let spawnInterval = 1500; // 1.5s
+let spawnInterval = 1500;
 let lastSpawn = Date.now();
 
 // Điều khiển phím
@@ -60,7 +60,7 @@ const obstacleImages = [
 
 // Spawn chướng ngại vật
 function spawnObstacle() {
-    const size = Math.random() * 30 + 60;
+    const size = Math.random() * 30 + 50;
     const x = Math.random() * (canvas.width - size);
     const img = obstacleImages[Math.floor(Math.random() * obstacleImages.length)];
 
@@ -117,8 +117,8 @@ function updateObstacles() {
     if (now - lastSpawn > spawnInterval) {
         spawnObstacle();
         lastSpawn = now;
-        obstacleSpeed += 0.2;       // tăng tốc dần
-        if (spawnInterval > 500) spawnInterval -= 20; // spawn nhanh hơn
+        obstacleSpeed += 0.4;       // tăng tốc dần
+        if (spawnInterval > 100) spawnInterval -= 50;
     }
 
     obstacles.forEach(o => {
