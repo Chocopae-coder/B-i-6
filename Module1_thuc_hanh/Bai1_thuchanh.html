@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function TBC(){
+            let a=prompt("nhap mang")
+            let arr=a.split(" ").map(Number)
+            let tong=0
+            let dem=0
+            for (i=0;i<arr.length;i++){
+                if(i%2==0 && arr[i]%2==1){
+                    tong=tong+arr[i]
+                    dem=dem+1
+                }
+            }
+            document.write((tong/dem).toFixed(2));
+        }
+        TBC()
+    </script>
+</body>
+</html>

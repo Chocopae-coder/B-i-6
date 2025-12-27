@@ -10,9 +10,7 @@
 </style>
 </head>
 <body>
-<canvas id="gameCanvas" width="600" height="400"></canvas>
-
-<!-- Hình ảnh xe -->
+<canvas id="gameCanvas" width="600" height="700"></canvas>
 <img id="playerCar" src="E:\Python\B-i-6\HTML\Car2.png" style="display:none;">
 <img id="obstacle1" src="E:\Python\B-i-6\HTML\obstacle1.png" style="display:none;">
 <img id="obstacle2" src="E:\Python\B-i-6\HTML\obstacle2.png" style="display:none;">
@@ -22,8 +20,6 @@
 <script>
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
-
-// Xe của người chơi
 const car = {
     x: canvas.width/2 - 20,
     y: canvas.height - 100,
@@ -31,24 +27,19 @@ const car = {
     height: 80,
     speed: 6
 };
-
-// Mảng chướng ngại vật
 let obstacles = [];
 let score = 0;
 let gameOver = false;
 let obstacleSpeed = 2;
-let spawnInterval = 1500;
+let spawnInterval = 2000;
 let lastSpawn = Date.now();
 
-// Điều khiển phím
 const keys = {
     ArrowUp: false,
     ArrowDown: false,
     ArrowLeft: false,
     ArrowRight: false
 };
-
-// Load hình ảnh
 const playerCarImage = document.getElementById('playerCar');
 const obstacleImages = [
     document.getElementById('obstacle1'),
@@ -57,8 +48,6 @@ const obstacleImages = [
     document.getElementById('obstacle4'),
     document.getElementById('obstacle5')
 ];
-
-// Spawn chướng ngại vật
 function spawnObstacle() {
     const size = Math.random() * 30 + 50;
     const x = Math.random() * (canvas.width - size);
@@ -73,7 +62,6 @@ function spawnObstacle() {
         passed: false
     });
 }
-
 // Kiểm tra va chạm
 function isColliding(a, b) {
     return !(
@@ -83,26 +71,22 @@ function isColliding(a, b) {
         a.y > b.y + b.height
     );
 }
-
 // Vẽ xe người chơi
 function drawCar() {
     ctx.drawImage(playerCarImage, car.x, car.y, car.width, car.height);
 }
-
 // Vẽ chướng ngại vật
 function drawObstacles() {
     obstacles.forEach(o => {
         ctx.drawImage(o.image, o.x, o.y, o.width, o.height);
     });
 }
-
 // Vẽ điểm số
 function drawScore() {
     ctx.fillStyle = 'white';
     ctx.font = '20px Arial';
     ctx.fillText('Score: ' + score, 10, 30);
 }
-
 // Cập nhật xe
 function updateCar() {
     if (keys.ArrowUp && car.y > 0) car.y -= car.speed;
@@ -110,14 +94,13 @@ function updateCar() {
     if (keys.ArrowLeft && car.x > 0) car.x -= car.speed;
     if (keys.ArrowRight && car.x + car.width < canvas.width) car.x += car.speed;
 }
-
 // Cập nhật chướng ngại vật
 function updateObstacles() {
     const now = Date.now();
     if (now - lastSpawn > spawnInterval) {
         spawnObstacle();
         lastSpawn = now;
-        obstacleSpeed += 0.4;       // tăng tốc dần
+        obstacleSpeed += 0.4;
         if (spawnInterval > 100) spawnInterval -= 50;
     }
 
@@ -157,16 +140,12 @@ function gameLoop() {
         ctx.fillText('Score: ' + score, canvas.width / 2 - 80, canvas.height / 2 + 40);
     }
 }
-
-// Bàn phím
 document.addEventListener('keydown', e => {
     if (keys.hasOwnProperty(e.key)) keys[e.key] = true;
 });
 document.addEventListener('keyup', e => {
     if (keys.hasOwnProperty(e.key)) keys[e.key] = false;
 });
-
-// Bắt đầu game
 gameLoop();
 </script>
 </body>
