@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function so_than_thiet(a,b){
+            let tong1=0
+            let tong2=0
+            for (i=1;i<a;i++){
+                if(a%i==0){
+                    tong1=tong1+i
+                }
+            }
+            for (i=1; i<b;i++){
+                if (b%i==0){
+                    tong2=tong2+i
+                }
+            }
+            if(a==tong2 && b==tong1){
+                document.write ("True")
+            } else document.write("False")
+        }
+        so_than_thiet(220,284);
+    </script>
+</body>
+</html>

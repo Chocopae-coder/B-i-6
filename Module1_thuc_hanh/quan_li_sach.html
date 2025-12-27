@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý sách</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #333;
+            padding: 8px 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        button {
+            margin: 20px auto;
+            display: block;
+            padding: 8px 16px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align:center;">Quản lý sách</h1>
+<div style="display: flex; justify-content: center; gap: 10px; margin: 10px 0;">
+    <button onclick="themSach()">Thêm sách mới</button>
+    <button onclick="themsachdaco()">Thêm sách đã có</button>
+    <button onclick="muonsach()">Mượn Sách</button>
+    <button onclick="hienthisachnhieunhat()">Hiển thị sách nhiều nhất</button>
+</div>
+
+    <table id="tableSach">
+        <thead>
+            <tr>
+                <th>Mã số sách</th>
+                <th>Tên sách</th>
+                <th>Năm xuất bản</th>
+                <th>Số quyển</th>
+                <th>Tình trạng</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        let danhSachSach = [];
+        function Sach(ma, ten, nam, so_Quyen) {
+            return {
+                maSach: ma,
+                tenSach: ten,
+                namXB: nam,
+                so_Quyen: so_Quyen,
+                tinhTrang: so_Quyen > 0
+            };
+        }
+        function hienThiSach() {
+            let tbody = document.getElementById("tableSach").getElementsByTagName("tbody")[0];
+            tbody.innerHTML = "";
+
+            danhSachSach.forEach((sach, index) => {
+                let row = tbody.insertRow();
+                row.insertCell(0).innerText = sach.maSach;
+                row.insertCell(1).innerText = sach.tenSach;
+                row.insertCell(2).innerText = sach.namXB;
+                row.insertCell(3).innerText = sach.so_Quyen;
+                row.insertCell(4).innerText = sach.tinhTrang
+            });
+        }
+        function themSach() {
+            let ma = prompt("Nhập mã sách (5 ký tự, ký tự đầu 1-5, 4 ký tự sau 0-9):");
+            let ten = prompt("Nhập tên sách:");
+            let nam = parseInt(prompt("Nhập năm (4 số):"));
+            if (nam < 1000 || nam > 9999) {
+                alert("Năm xuất bản không hợp lệ!");
+                return;
+            }
+            let soQuyen = parseInt(prompt("Nhập số quyển:"));
+            if (isNaN(soQuyen) || soQuyen < 0) {
+                alert("Số quyển không hợp lệ!");
+                return;
+            }
+            console.log(soQuyen)
+            let sachMoi = Sach(ma, ten, nam, soQuyen);
+            danhSachSach.push(sachMoi);
+
+            hienThiSach();
+            alert("Thêm sách thành công!");
+        }
+        function themsachdaco() {
+            let ma = prompt("Nhập mã sách đã có:");
+            let sach = danhSachSach.find(s => s.maSach === ma);
+            if (!sach) { alert("Mã sách không tồn tại!"); return; }
+            let soThem = parseInt(prompt("Nhập số quyển muốn thêm:"));
+            if (isNaN(soThem) || soThem <= 0) { alert("Số quyển không hợp lệ!"); return; }
+            sach.so_Quyen += soThem;
+            sach.tinhTrang = true;
+            hienThiSach();
+            alert("Đã thêm " + soThem + " quyển vào sách " + sach.tenSach);
+        }
+        function muonsach() {
+            let ma = prompt("Nhập mã sách muốn mượn:");
+            let so_muon=prompt("Nhapapj số sách muốn mượn");
+            let sach = danhSachSach.find(s => s.maSach === ma);
+            if (!sach) { alert("Mã sách không tồn tại!"); return; }
+            if (sach.tinhTrang==false) { alert("Sách đã hết!"); return; }
+            if (so_muon>sach.soQuyen) {alert("Sách không đủ");return;}
+            sach.soQuyen = sach.soQuyen - so_muon;
+            if (sach.soQuyen == 0) {
+                sach.tinhTrang = false;
+            }
+            hienThiSach();
+            alert("Đã mượn"+ so_muon+" quyển sách " + sach.tenSach);
+        }
+        hienThiSach();
+    </script>
+</body>
+</html>
