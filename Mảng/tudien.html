@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function tudien(){
+            let str1= ["school","student","class","name","age","subject"]
+            let str2=["truong hoc","hoc sinh","lop","ten","tuoi","mon hoc"]
+            let check=prompt("nhap chu can tra")
+            let a= false
+            for (let i=0; i< str1.length;i++){
+                if(str1[i]==check){
+                    alert(str2[i])
+                    a=true
+                }
+            }
+            if(a==false){
+                alert("khong tim thay")
+            }
+        
+        }
+        tudien();
+    </script>
+</body>
+</html>

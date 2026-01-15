@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function doixung (chuoi){
+            let dau = 0
+            let cuoi = chuoi.lenght -1
+            while (dau < cuoi){
+                if (chuoi[dau] != chuoi[cuoi]){
+                    return false;
+                }
+            }
+            return true
+        }
+        console.log(doixung("abbca"))
+    </script>
+</body>
+</html>

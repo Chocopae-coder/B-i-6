@@ -1,0 +1,46 @@
+<!-- 
+- Chương trình cho ngẫu nhiền 1 số 1 - 10
+- Nhập vào số mình đoán
+- Chương trình kiểm tra đúng sai và thông báo. Sai được nhập lại
+- Nếu 3 lần đoán vẫn sai, thì thông báo thua cuộc
+- Nếu đoán đúng hiển thị thông báo thắng cuộc 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess Number Game</title>
+</head>
+<body>
+    <script>
+        function guessNumberGame(){
+            let secretNumber = parseInt(Math.random() * 100) + 1;
+            let guess;
+            let count = 0;
+            let limitCount = 5
+            
+            do{
+                guess = prompt("Đoán số (1 - 100)");
+                count++;
+                if(guess == secretNumber){
+                    alert("Đoán đúng rồi");
+                }else{
+                    if(count >= limitCount){
+                        alert("Bạn đã đoán sai 3 lần rồi. Thua");
+                        break;
+                    }else{
+                        if(guess > secretNumber){
+                            alert("Đoán sai, số bạn LỚN hơn, bạn còn "+ (limitCount - count)+ " lần đoán");
+                        }else{
+                            alert("Đoán sai, số bạn NHỎ hơn, bạn còn "+ (limitCount - count)+ " lần đoán");
+                        }
+                    }
+                }
+            }while(guess != secretNumber)
+        }
+
+        guessNumberGame();
+    </script>
+</body>
+</html>

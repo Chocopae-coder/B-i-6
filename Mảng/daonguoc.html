@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function daonguoc(){
+            let a=prompt("nhap mang")
+            let arr=a.split(" ")
+            for (i=0;i<arr.length-i;++i){
+                let b=arr[i]
+                arr[i]=arr[arr.length-i]
+                arr[arr.length-i]=b
+            }
+            document.write(arr);
+        }
+        daonguoc()
+    </script>
+</body>
+</html>
